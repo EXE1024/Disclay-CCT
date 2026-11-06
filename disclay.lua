@@ -31,4 +31,22 @@ function disclay.Frame(x,y,ypos,xpos,color,name)
     copy.name = name
     table.insert(renders, copy)
 end
+
+function display.EditSize(x,y,name) 
+    for _, render in renders do
+        if render.name == name then
+            render.x = x 
+            render.y = y 
+        end
+    end
+end
+
+function display.EditPosition(x,y,name) 
+    for _, render in renders do
+        if render.name == name then
+            render.xpos = xpos 
+            render.ypos = ypos
+        end
+    end
+end
 return disclay
