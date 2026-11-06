@@ -4,7 +4,8 @@ local frame_default = {x=20,y=20,ypos=0, xpos=0, color=colors.cyan, type="frame"
 
 term.redirect(monitor)
 
-local function update() 
+local disclay = {}
+function disclay.update() 
     for _, render in ipairs(renders) do
         monitor.setBackgroundColor(colors.black)
         monitor.clear()
@@ -20,7 +21,7 @@ local function update()
     end
 end
 
-local function Frame(x,y,ypos,xpos,color,name)
+function disclay.Frame(x,y,ypos,xpos,color,name)
     local copy = frame_default
     copy.x = x
     copy.y = y
@@ -30,4 +31,4 @@ local function Frame(x,y,ypos,xpos,color,name)
     copy.name = name
     table.insert(renders, copy)
 end
-
+return disclay
