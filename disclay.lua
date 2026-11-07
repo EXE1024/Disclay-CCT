@@ -32,7 +32,6 @@ function disclay.update()
                     io.write("   ")
                 end
             end
-        end
         elseif render.type == "shframe" then
             for y = 0, render.y do
                 for x = 0, render.x do
@@ -47,7 +46,6 @@ function disclay.update()
                     end
                 end
             end
-        end
         elseif render.type == "label" then
             monitor.setCursorPos(render.x,render.y)
             monitor.setTextColor(render.color)
