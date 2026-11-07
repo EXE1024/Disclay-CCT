@@ -1,10 +1,24 @@
 local renders = {}
 local monitor = peripheral.wrap("top")
 local frame_default = {x=20,y=20,ypos=0, xpos=0, color=colors.cyan, type="frame", name="Template"}
+local dark = {
+    [colors.red]       = colors.maroon,
+    [colors.blue]      = colors.navy,
+    [colors.lime]      = colors.green,
+    [colors.yellow]    = colors.orange,
+    [colors.magenta]   = colors.purple,
+    [colors.white]     = colors.lightGray,
+    [colors.lightGray] = colors.gray,
+    [colors.gray]      = colors.black,
+}
 
 term.redirect(monitor)
 
 local disclay = {}
+function disclay.shadow(color)
+    return dark[color] or color
+end
+
 function disclay.update() 
     for _, render in ipairs(renders) do
         monitor.setBackgroundColor(colors.black)
@@ -15,6 +29,21 @@ function disclay.update()
                     monitor.setCursorPos(x+render.xpos,y+render.ypos)
                     monitor.setBackgroundColor(render.color)
                     io.write("   ")
+                end
+            end
+        end
+        if render.type == "frame" then
+            for y = 0, render.y do
+                for x = 0, render.x do
+                    if y != render.y then
+                        monitor.setCursorPos(x+render.xpos,y+render.ypos)
+                        monitor.setBackgroundColor(render.color)
+                        io.write("   ")
+                    else
+                        monitor.setCursorPos(x+render.xpos,y+render.ypos)
+                        monitor.setBackgroundColor(shadow(render.color))
+                        io.write("   ")                
+                    end
                 end
             end
         end
@@ -36,9 +65,21 @@ function disclay.EditSize(xnew,ynew,name)
     for _, render in ipairs(renders) do
         if render.name == name then
             render.x = xnew
-            render.y = y new
+            render.y = ynew
         end
     end
+end
+
+function disclay.ShadowFrame(x,y,ypos,xpos,color,name)
+    local copy = frame_default
+    copy.x = x
+    copy.y = y 
+    copy.ypos = ypos 
+    copy.xpos = xpos 
+    copy.color = color
+    copy.name = name
+    copy.type = "shframe"
+    table.insert(renders,copy)
 end
 
 function disclay.EditPosition(xnew,ynew,name) 
