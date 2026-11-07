@@ -35,7 +35,7 @@ function disclay.update()
         if render.type == "shframe" then
             for y = 0, render.y do
                 for x = 0, render.x do
-                    if y ~= render.y then
+                    if y ~= render.y and x ~= render.x then
                         monitor.setCursorPos(x+render.xpos,y+render.ypos)
                         monitor.setBackgroundColor(render.color)
                         io.write("   ")
