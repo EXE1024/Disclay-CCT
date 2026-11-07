@@ -32,20 +32,20 @@ function disclay.Frame(x,y,ypos,xpos,color,name)
     table.insert(renders, copy)
 end
 
-function disclay.EditSize(x,y,name) 
-    for _, render in renders do
+function disclay.EditSize(xnew,ynew,name) 
+    for _, render in ipairs(renders) do
         if render.name == name then
-            render.x = x 
-            render.y = y 
+            render.x = xnew
+            render.y = y new
         end
     end
 end
 
-function disclay.EditPosition(x,y,name) 
-    for _, render in renders do
+function disclay.EditPosition(xnew,ynew,name) 
+    for _, render in ipairs(renders) do
         if render.name == name then
-            render.xpos = xpos 
-            render.ypos = ypos
+            render.xpos = xnew
+            render.ypos = ynew
         end
     end
 end
