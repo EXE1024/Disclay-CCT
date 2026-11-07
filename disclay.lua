@@ -12,7 +12,8 @@ local dark = {
     [colors.lightGray] = colors.gray,
     [colors.gray]      = colors.black,
 }
-
+ -- DISCLAY 1.0
+ -- CC Tweaked UI Render
 term.redirect(monitor)
 
 local disclay = {}
