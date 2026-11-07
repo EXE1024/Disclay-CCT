@@ -82,7 +82,7 @@ function disclay.ShadowFrame(x,y,ypos,xpos,color,name)
 end
 
 function disclay.Label(x,y,color,name,text)
-    local copy = label_default
+    local copy = text_default
     copy.x = x
     copy.y = y
     copy.color = color
