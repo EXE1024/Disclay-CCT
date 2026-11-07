@@ -21,9 +21,9 @@ function disclay.shadow(color)
 end
 
 function disclay.update() 
+    monitor.setBackgroundColor(colors.black)
+    monitor.clear()
     for _, render in ipairs(renders) do
-        monitor.setBackgroundColor(colors.black)
-        monitor.clear()
         if render.type == "frame" then
             for y = 0, render.y do
                 for x = 0, render.x do
