@@ -12,8 +12,7 @@ local dark = {
     [colors.lightGray] = colors.gray,
     [colors.gray]      = colors.black,
 }
- -- DISCLAY 1.0
- -- CC Tweaked UI Render
+
 term.redirect(monitor)
 
 local disclay = {}
@@ -47,16 +46,16 @@ function disclay.update()
                     end
                 end
             end
-        elseif render.type == "label" then
+        elseif render.type == "label" thena
             monitor.setCursorPos(render.x,render.y)
             monitor.setTextColor(render.color)
             io.write(render.text)
         end
-        monitor.setBackgroundColor(colors.white)
-        monitor.setTextColor(colors.black)
-        monitor.setCursorPos(1,1)
-        io.write("Disclay 1.0")
     end
+    monitor.setBackgroundColor(colors.white)
+    monitor.setTextColor(colors.black)
+    monitor.setCursorPos(1,1)
+    io.write("Disclay 1.0")
 end
 
 function disclay.Frame(x,y,ypos,xpos,color,name)
