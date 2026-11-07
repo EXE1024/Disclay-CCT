@@ -21,10 +21,6 @@ end
 
 function disclay.update() 
     for _, render in ipairs(renders) do
-        monitor.setBackgroundColor(colors.white)
-        monitor.setTextColor(colors.black)
-        monitor.setCursorPos(1,1)
-        io.write("Disclay 1.0")
         monitor.setBackgroundColor(colors.black)
         monitor.clear()
         if render.type == "frame" then
@@ -51,6 +47,10 @@ function disclay.update()
                 end
             end
         end
+        monitor.setBackgroundColor(colors.white)
+        monitor.setTextColor(colors.black)
+        monitor.setCursorPos(1,1)
+        io.write("Disclay 1.0")
     end
 end
 
